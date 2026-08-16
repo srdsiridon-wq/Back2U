@@ -1,0 +1,23 @@
+REVOKE EXECUTE ON FUNCTION public.resolve_moderation_report(uuid, text, text) FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.review_claim(uuid, claim_state, text) FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.cancel_claim(uuid) FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.moderate_item(uuid, text, text) FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.has_role(uuid, app_role) FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.is_staff(uuid) FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.owns_item(uuid, uuid) FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.guard_item_delete() FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.invalidate_stale_matches() FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.sync_item_image_approval() FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.set_updated_at() FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.handle_new_user() FROM PUBLIC;
+
+GRANT EXECUTE ON FUNCTION public.resolve_moderation_report(uuid, text, text) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.review_claim(uuid, claim_state, text) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.cancel_claim(uuid) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.moderate_item(uuid, text, text) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.has_role(uuid, app_role) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.is_staff(uuid) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.owns_item(uuid, uuid) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.has_role(uuid, app_role) TO service_role;
+GRANT EXECUTE ON FUNCTION public.is_staff(uuid) TO service_role;
+GRANT EXECUTE ON FUNCTION public.owns_item(uuid, uuid) TO service_role;

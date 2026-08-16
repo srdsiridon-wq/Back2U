@@ -1,0 +1,12 @@
+REVOKE ALL ON FUNCTION public.review_claim(uuid, public.claim_state, text) FROM PUBLIC, anon;
+REVOKE ALL ON FUNCTION public.cancel_claim(uuid) FROM PUBLIC, anon;
+REVOKE ALL ON FUNCTION public.moderate_item(uuid, text, text) FROM PUBLIC, anon;
+REVOKE ALL ON FUNCTION public.moderates_school(uuid, uuid) FROM PUBLIC, anon;
+REVOKE ALL ON FUNCTION public.moderates_item(uuid, uuid) FROM PUBLIC, anon;
+REVOKE ALL ON FUNCTION public.my_school_id() FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.review_claim(uuid, public.claim_state, text) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.cancel_claim(uuid) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.moderate_item(uuid, text, text) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.moderates_school(uuid, uuid) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.moderates_item(uuid, uuid) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.my_school_id() TO authenticated;
